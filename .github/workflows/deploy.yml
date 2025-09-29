@@ -26,11 +26,10 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           echo "Desplegando la nueva version (Lanzamiento Verde)..."
-          # Comando que crea un nuevo despliegue en un entorno aislado
-          VERCEL_DEPLOYMENT_URL=$(vercel --prod --token="$VERCEL_TOKEN" --project="${{ secrets.VERCEL_PROJECT_ID }}" --scope="${{ secrets.VERCEL_ORG_ID }}" --prebuilt)
+          VERCEL_DEPLOYMENT_URL=$(vercel --prod --token="$VERCEL_TOKEN")
           echo "::set-output name=url::$VERCEL_DEPLOYMENT_URL"
           echo "Despliegue exitoso en: $VERCEL_DEPLOYMENT_URL"
-
+    
       - name: Promover a Produccion (Cambio del Trafico)
         run: |
           echo "Promoviendo el despliegue a la URL principal..."
