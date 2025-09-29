@@ -1,0 +1,225 @@
+/* Colores y Fuentes */
+:root {
+    --primary-color: #007bff; /* Azul vibrante, puedes ajustar */
+    --secondary-color: #6c757d; /* Gris para texto secundario */
+    --dark-bg: #212529; /* Fondo oscuro para secciones */
+    --light-bg: #f8f9fa; /* Fondo claro para secciones */
+    --text-color-dark: #343a40; /* Texto oscuro */
+    --text-color-light: #ffffff; /* Texto claro */
+    --gradient-start: #00c6ff; /* Inicio del gradiente del logo */
+    --gradient-end: #0072ff; /* Fin del gradiente del logo */
+    --font-family: 'Montserrat', sans-serif; /* Fuente moderna, puedes elegir otra de Google Fonts */
+}
+
+/* Importar fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color-dark);
+    line-height: 1.6;
+    background-color: var(--light-bg);
+    padding-top: 56px; /* Altura de la navbar fija */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--dark-bg);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--dark-bg) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand img {
+    height: 40px; /* Ajusta el tamaño del logo */
+    filter: brightness(1.2); /* Pequeño ajuste para que resalte en el fondo oscuro */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--text-color-light);
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('image.png') center center no-repeat; /* Imagen de fondo para el hero, puedes crear una abstracta */
+    background-size: cover;
+    color: var(--text-color-light);
+    position: relative;
+    overflow: hidden; /* Para animaciones o elementos decorativos */
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-color-light);
+    margin-bottom: 20px;
+}
+
+.hero-section p.lead {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--primary-color), 10%);
+    border-color: darken(var(--primary-color), 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Secciones Generales */
+section {
+    padding: 80px 0;
+}
+
+section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Sección Nosotros - Imagen/Contenido */
+#nosotros img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Sección Servicios y Cómo Funciona - Cards/Icon Boxes */
+.card, .icon-box {
+    border: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card:hover, .icon-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.icon-box {
+    background-color: var(--text-color-light);
+    color: var(--text-color-dark);
+}
+
+.icon-large {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+/* Sección de Clientes/Testimonios */
+.blockquote {
+    font-style: italic;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--dark-bg);
+}
+
+.blockquote-footer {
+    color: var(--secondary-color);
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    padding: 15px;
+}
+
+/* Sección de Contacto */
+#contacto {
+    background-color: var(--dark-bg) !important;
+}
+
+#contacto h2 {
+    color: var(--text-color-light);
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.contact-info i {
+    color: var(--primary-color);
+}
+
+.form-control {
+    background-color: #343a40;
+    border-color: #495057;
+    color: var(--text-color-light);
+}
+
+.form-control::placeholder {
+    color: #ced4da;
+}
+
+.form-control:focus {
+    background-color: #343a40;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+    color: var(--text-color-light);
+}
+
+.social-icons a {
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg) !important;
+    border-top: 1px solid #343a40;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .hero-section p.lead {
+        font-size: 1.2rem;
+    }
+    section {
+        padding: 60px 0;
+    }
+    section h2 {
+        font-size: 2rem;
+    }
+}
