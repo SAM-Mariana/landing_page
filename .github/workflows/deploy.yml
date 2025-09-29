@@ -20,7 +20,7 @@ jobs:
       - name: Instalar Vercel CLI
         run: npm install --global vercel@latest
 
-     - name: Despliegue Atómico (Lanzamiento Verde)
+      - name: Despliegue Atómico (Lanzamiento Verde)
         id: deploy-to-vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -29,10 +29,10 @@ jobs:
           VERCEL_DEPLOYMENT_URL=$(vercel --prod --token="$VERCEL_TOKEN" --yes)
           echo "::set-output name=url::$VERCEL_DEPLOYMENT_URL"
           echo "Despliegue exitoso en: $VERCEL_DEPLOYMENT_URL"
-    
+      
       - name: Promover a Produccion (Cambio del Trafico)
         run: |
           echo "Promoviendo el despliegue a la URL principal..."
           # El alias es el comando que "cambia el puntero"
-          vercel alias set ${{ steps.deploy-to-vercel.outputs.url }} tu-dominio.com --token="${{ secrets.VERCEL_TOKEN }}" --project="${{ secrets.VERCEL_PROJECT_ID }}" --scope="${{ secrets.VERCEL_ORG_ID }}"
+          vercel alias set ${{ steps.deploy-to-vercel.outputs.url }} tu-dominio.com --token="${{ secrets.VERCEL_TOKEN }}"
           echo "¡Lanzamiento Azul/Verde completado! El trafico se ha redirigido a la nueva version."
